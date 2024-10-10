@@ -1,8 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://m0o5ly5vnqs0"]
+[gd_scene load_steps=33 format=3 uid="uid://m0o5ly5vnqs0"]
 
+[ext_resource type="Texture2D" uid="uid://cb4vsyvmy4khk" path="res://icon.svg" id="1_7eq37"]
 [ext_resource type="Script" path="res://coin.gd" id="1_kkrfn"]
 [ext_resource type="AudioStream" uid="uid://dulef5wa58lcj" path="res://jump.wav" id="2_3tv5f"]
 [ext_resource type="AudioStream" uid="uid://bi8gcir11gbbj" path="res://8_bit_lofi.mp3" id="3_4dsk6"]
+[ext_resource type="Texture2D" uid="uid://c4vc7a2fw1wul" path="res://coinFolder/goldCoin1.png" id="3_hc3a8"]
+[ext_resource type="Texture2D" uid="uid://d3vfhlnu4mqxn" path="res://coinFolder/goldCoin2.png" id="4_j8qr3"]
+[ext_resource type="Texture2D" uid="uid://410qp248nivg" path="res://coinFolder/goldCoin3.png" id="5_3ilwm"]
+[ext_resource type="Texture2D" uid="uid://bdde61nrd7wop" path="res://coinFolder/goldCoin4.png" id="6_2supw"]
+[ext_resource type="Texture2D" uid="uid://bm0t3a7tqu7ns" path="res://coinFolder/goldCoin5.png" id="7_w54gg"]
+[ext_resource type="Texture2D" uid="uid://by0mxa7fckesx" path="res://coinFolder/goldCoin6.png" id="8_g5h0e"]
+[ext_resource type="Texture2D" uid="uid://bo1r8ku1m0d23" path="res://coinFolder/goldCoin7.png" id="9_gnj1y"]
+[ext_resource type="Texture2D" uid="uid://4w80rquqqqm6" path="res://coinFolder/goldCoin8.png" id="10_ml572"]
+[ext_resource type="Texture2D" uid="uid://bpb61g65ciqb4" path="res://coinFolder/goldCoin9.png" id="11_tcdwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giral"]
 size = Vector2(4460, 414.5)
@@ -40,10 +50,124 @@ func _physics_process(delta: float) -> void:
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_heqyt"]
 radius = 88.0
-height = 422.0
+height = 290.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_50jj7"]
 radius = 143.558
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob42r"]
+atlas = ExtResource("3_hc3a8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yu62"]
+atlas = ExtResource("4_j8qr3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01osg"]
+atlas = ExtResource("5_3ilwm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5713v"]
+atlas = ExtResource("6_2supw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3cix"]
+atlas = ExtResource("7_w54gg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txp0j"]
+atlas = ExtResource("8_g5h0e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h4x5"]
+atlas = ExtResource("9_gnj1y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i4vs"]
+atlas = ExtResource("10_ml572")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxajj"]
+atlas = ExtResource("11_tcdwk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bga2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob42r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yu62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01osg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5713v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3cix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txp0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h4x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i4vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxajj")
+}],
+"loop": true,
+"name": &"first",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_s6bql"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xhvor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bhjqp"]
+_data = {
+"RESET": SubResource("Animation_xhvor"),
+"new_animation": SubResource("Animation_s6bql")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7km3a"]
+animation = &"new_animation"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xg1mi"]
+states/new_animation/node = SubResource("AnimationNodeAnimation_7km3a")
+states/new_animation/position = Vector2(226, 77.5)
 
 [node name="World" type="Node2D"]
 
@@ -60,6 +184,11 @@ script = SubResource("GDScript_2a87i")
 position = Vector2(808, 880)
 shape = SubResource("CapsuleShape2D_heqyt")
 
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(808, 881)
+scale = Vector2(2.20703, 2.33984)
+texture = ExtResource("1_7eq37")
+
 [node name="coin" type="Area2D" parent="."]
 script = ExtResource("1_kkrfn")
 
@@ -67,6 +196,21 @@ script = ExtResource("1_kkrfn")
 position = Vector2(2054, 1722)
 shape = SubResource("CircleShape2D_50jj7")
 debug_color = Color(0.866731, 0.76361, 0, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="coin"]
+position = Vector2(2059, 1721)
+scale = Vector2(15.7187, 15.7187)
+sprite_frames = SubResource("SpriteFrames_3bga2")
+animation = &"first"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="coin"]
+libraries = {
+"": SubResource("AnimationLibrary_bhjqp")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="coin"]
+tree_root = SubResource("AnimationNodeStateMachine_xg1mi")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_3tv5f")
