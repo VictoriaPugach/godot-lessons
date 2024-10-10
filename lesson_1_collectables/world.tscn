@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://m0o5ly5vnqs0"]
+[gd_scene load_steps=7 format=3 uid="uid://m0o5ly5vnqs0"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_kkrfn"]
+[ext_resource type="AudioStream" uid="uid://dulef5wa58lcj" path="res://jump.wav" id="2_3tv5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giral"]
 size = Vector2(4460, 414.5)
@@ -12,7 +13,7 @@ script/source = "extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var coins = 0
-
+@onready var jump_sound = $\"../AudioStreamPlayer2D\"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,6 +23,8 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -63,5 +66,11 @@ script = ExtResource("1_kkrfn")
 position = Vector2(2054, 1722)
 shape = SubResource("CircleShape2D_50jj7")
 debug_color = Color(0.866731, 0.76361, 0, 0.42)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3tv5f")
+volume_db = 3.695
+pitch_scale = 1.89
+attenuation = 1.51572
 
 [connection signal="body_entered" from="coin" to="coin" method="_on_body_entered"]
