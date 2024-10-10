@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://m0o5ly5vnqs0"]
+[gd_scene load_steps=37 format=3 uid="uid://m0o5ly5vnqs0"]
 
 [ext_resource type="Texture2D" uid="uid://cb4vsyvmy4khk" path="res://icon.svg" id="1_7eq37"]
 [ext_resource type="Script" path="res://coin.gd" id="1_kkrfn"]
@@ -91,6 +91,22 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("11_tcdwk")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u07qi"]
+atlas = ExtResource("3_hc3a8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwtbh"]
+atlas = ExtResource("5_3ilwm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udfaq"]
+atlas = ExtResource("7_w54gg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5n3p"]
+atlas = ExtResource("11_tcdwk")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3bga2"]
 animations = [{
 "frames": [{
@@ -124,10 +140,27 @@ animations = [{
 "loop": true,
 "name": &"first",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u07qi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwtbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udfaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5n3p")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_s6bql"]
-resource_name = "new_animation"
+[sub_resource type="Animation" id="Animation_xhvor"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -140,9 +173,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"new_animation"]
+}
 
-[sub_resource type="Animation" id="Animation_xhvor"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_s6bql"]
+resource_name = "new_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -201,7 +246,7 @@ debug_color = Color(0.866731, 0.76361, 0, 0.42)
 position = Vector2(2059, 1721)
 scale = Vector2(15.7187, 15.7187)
 sprite_frames = SubResource("SpriteFrames_3bga2")
-animation = &"first"
+animation = &"new_animation"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="coin"]
 libraries = {
