@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://m0o5ly5vnqs0"]
+[gd_scene load_steps=8 format=3 uid="uid://m0o5ly5vnqs0"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_kkrfn"]
 [ext_resource type="AudioStream" uid="uid://dulef5wa58lcj" path="res://jump.wav" id="2_3tv5f"]
+[ext_resource type="AudioStream" uid="uid://bi8gcir11gbbj" path="res://8_bit_lofi.mp3" id="3_4dsk6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_giral"]
 size = Vector2(4460, 414.5)
@@ -72,5 +73,10 @@ stream = ExtResource("2_3tv5f")
 volume_db = 3.695
 pitch_scale = 1.89
 attenuation = 1.51572
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4dsk6")
+volume_db = -16.0
+autoplay = true
 
 [connection signal="body_entered" from="coin" to="coin" method="_on_body_entered"]
