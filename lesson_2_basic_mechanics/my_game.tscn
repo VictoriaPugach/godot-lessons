@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmooe8pxxfvu7"]
+[gd_scene load_steps=11 format=3 uid="uid://cmooe8pxxfvu7"]
 
 [ext_resource type="Texture2D" uid="uid://gslo8f86m6pu" path="res://gui.png" id="1_aywpp"]
 [ext_resource type="Script" path="res://gui.gd" id="1_esj0l"]
+[ext_resource type="Texture2D" uid="uid://du0dmdqkjlils" path="res://icon.svg" id="3_dncqx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wklb"]
 
@@ -19,6 +20,7 @@ script/source = "extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const health = 100
 
 
 func _physics_process(delta: float) -> void:
@@ -44,6 +46,9 @@ func _physics_process(delta: float) -> void:
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gen6y"]
 radius = 0.283213
 height = 1.35878
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7efng"]
+size = Vector2(1.17576, 1.19353)
 
 [node name="MyGame" type="Node2D"]
 position = Vector2(-5.00024, 149)
@@ -82,9 +87,22 @@ scale = Vector2(2.52387, -0.259316)
 shape = SubResource("RectangleShape2D_6n1ga")
 debug_color = Color(0.305882, 0.466667, 0.364706, 0.972549)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 script = SubResource("GDScript_acvq3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(2.21421, 1.85456)
 shape = SubResource("CapsuleShape2D_gen6y")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(5.56986, 2.6533)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.497768, -0.257067)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7efng")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+position = Vector2(-0.506351, -0.275429)
+scale = Vector2(0.00910653, 0.00910653)
+texture = ExtResource("3_dncqx")
