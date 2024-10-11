@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmooe8pxxfvu7"]
+[gd_scene load_steps=16 format=3 uid="uid://cmooe8pxxfvu7"]
 
 [ext_resource type="Texture2D" uid="uid://gslo8f86m6pu" path="res://gui.png" id="1_aywpp"]
 [ext_resource type="Script" path="res://gui.gd" id="1_esj0l"]
 [ext_resource type="Script" path="res://attack_detector.gd" id="3_p44wu"]
 [ext_resource type="Script" path="res://enemy.gd" id="4_0oovu"]
+[ext_resource type="Texture2D" uid="uid://b1pcv3sl37gnr" path="res://girl 8 bit.png" id="4_bp1md"]
 [ext_resource type="Texture2D" uid="uid://l8jndltdtg7p" path="res://hse.jpg" id="5_6l3un"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wklb"]
@@ -108,6 +109,7 @@ script = SubResource("GDScript_acvq3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(2.21421, 1.85456)
 shape = SubResource("CapsuleShape2D_gen6y")
+debug_color = Color(0, 0.6, 0.701961, 0.0941176)
 
 [node name="AttackDetector" type="Area2D" parent="Player"]
 script = ExtResource("3_p44wu")
@@ -116,6 +118,13 @@ script = ExtResource("3_p44wu")
 position = Vector2(2.23996, 1.82701)
 shape = SubResource("CircleShape2D_bm7dj")
 debug_color = Color(0.508234, 0.550526, 0.499217, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(2.16272, 1.928)
+scale = Vector2(0.0282265, 0.0282265)
+texture = ExtResource("4_bp1md")
+region_enabled = true
+region_rect = Rect2(216.202, 0.503899, 35.0494, 43.286)
 
 [node name="Enemy" type="Area2D" parent="."]
 position = Vector2(5.56986, 2.6533)
