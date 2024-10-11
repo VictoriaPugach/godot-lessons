@@ -12,17 +12,17 @@ offset_right = 1026.0
 offset_bottom = 628.0
 
 [node name="Play" type="Button" parent="."]
-offset_left = 445.0
-offset_top = 259.0
-offset_right = 646.0
-offset_bottom = 323.0
+offset_left = 451.0
+offset_top = 365.0
+offset_right = 652.0
+offset_bottom = 429.0
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 446.0
-offset_top = 359.0
-offset_right = 647.0
-offset_bottom = 440.0
+offset_left = 452.0
+offset_top = 465.0
+offset_right = 653.0
+offset_bottom = 546.0
 text = "Quit"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
