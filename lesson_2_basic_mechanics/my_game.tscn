@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmooe8pxxfvu7"]
+[gd_scene load_steps=15 format=3 uid="uid://cmooe8pxxfvu7"]
 
 [ext_resource type="Texture2D" uid="uid://gslo8f86m6pu" path="res://gui.png" id="1_aywpp"]
 [ext_resource type="Script" path="res://gui.gd" id="1_esj0l"]
-[ext_resource type="Texture2D" uid="uid://du0dmdqkjlils" path="res://icon.svg" id="3_dncqx"]
+[ext_resource type="Script" path="res://attack_detector.gd" id="3_p44wu"]
+[ext_resource type="Script" path="res://enemy.gd" id="4_0oovu"]
+[ext_resource type="Texture2D" uid="uid://l8jndltdtg7p" path="res://hse.jpg" id="5_6l3un"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0wklb"]
 
@@ -10,6 +12,9 @@
 
 [sub_resource type="Theme" id="Theme_t6unl"]
 default_font = SubResource("FontVariation_qben5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmtye"]
+bg_color = Color(1, 1, 0, 0.623529)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6n1ga"]
 size = Vector2(3.93924, 6.69942)
@@ -20,7 +25,7 @@ script/source = "extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-const health = 100
+var health = 100
 
 
 func _physics_process(delta: float) -> void:
@@ -41,16 +46,26 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+
+func hit():
+	if self.health >= 0:
+		self.health -= 10
+	else:
+		self.queue_free()
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gen6y"]
 radius = 0.283213
 height = 1.35878
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bm7dj"]
+radius = 1.30914
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7efng"]
 size = Vector2(1.17576, 1.19353)
 
-[node name="MyGame" type="Node2D"]
+[node name="Game" type="Node2D"]
 position = Vector2(-5.00024, 149)
 scale = Vector2(116.52, 108.921)
 
@@ -65,16 +80,16 @@ region_enabled = true
 region_rect = Rect2(258.616, 39.2438, 74.3313, 20.8271)
 
 [node name="hp_bar" type="ProgressBar" parent="GUI"]
-modulate = Color(1, 0.282353, 0.054902, 1)
-self_modulate = Color(1, 0, 0, 1)
+modulate = Color(0.707928, 0.666649, 0.112638, 1)
+self_modulate = Color(0.965963, 0.805463, 7.70092e-07, 1)
 material = SubResource("CanvasItemMaterial_0wklb")
-anchors_preset = -1
 offset_left = 62.0
 offset_top = 48.0
 offset_right = 298.0
 offset_bottom = 110.0
 scale = Vector2(0.740354, 0.746585)
 theme = SubResource("Theme_t6unl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rmtye")
 value = 100.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
@@ -94,15 +109,29 @@ script = SubResource("GDScript_acvq3")
 position = Vector2(2.21421, 1.85456)
 shape = SubResource("CapsuleShape2D_gen6y")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(5.56986, 2.6533)
+[node name="AttackDetector" type="Area2D" parent="Player"]
+script = ExtResource("3_p44wu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AttackDetector"]
+position = Vector2(2.23996, 1.82701)
+shape = SubResource("CircleShape2D_bm7dj")
+debug_color = Color(0.508234, 0.550526, 0.499217, 0.42)
+
+[node name="Enemy" type="Area2D" parent="."]
+position = Vector2(5.56986, 2.6533)
+script = ExtResource("4_0oovu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
 position = Vector2(-0.497768, -0.257067)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_7efng")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(-0.506351, -0.275429)
-scale = Vector2(0.00910653, 0.00910653)
-texture = ExtResource("3_dncqx")
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(-0.506349, -0.257068)
+scale = Vector2(0.00165265, 0.00165265)
+texture = ExtResource("5_6l3un")
+
+[connection signal="area_entered" from="Player/AttackDetector" to="Enemy" method="_on_attack_detector_area_entered"]
+[connection signal="area_entered" from="Player/AttackDetector" to="Player/AttackDetector" method="_on_area_entered"]
+[connection signal="body_entered" from="Player/AttackDetector" to="Player/AttackDetector" method="_on_body_entered"]
+[connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
+[connection signal="body_entered" from="Enemy" to="Enemy" method="_on_body_entered"]
