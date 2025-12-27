@@ -1,16 +1,33 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvouvuekrebvu"]
+[gd_scene load_steps=32 format=3 uid="uid://bvouvuekrebvu"]
 
 [ext_resource type="Script" uid="uid://ejdus2pi3855" path="res://Player.gd" id="1_mq4s1"]
+[ext_resource type="Texture2D" uid="uid://cg78l1ud0vlo3" path="res://floor.jpg" id="1_mtxor"]
 [ext_resource type="Script" uid="uid://b5yqkvgf7nhdw" path="res://Cashier.gd" id="2_1yoj2"]
 [ext_resource type="PackedScene" uid="uid://4g357wgjnw7q" path="res://coin.tscn" id="3_68qg3"]
 [ext_resource type="PackedScene" uid="uid://comv1uxblkil2" path="res://food.tscn" id="4_f6w01"]
 [ext_resource type="Script" uid="uid://bxupo3bsycexu" path="res://UIManager.gd" id="5_5chmy"]
+[ext_resource type="PackedScene" uid="uid://jxmjdwa44ayg" path="res://Glorious Uusam.glb" id="7_shtk2"]
+[ext_resource type="PackedScene" uid="uid://dg7khv46soieh" path="res://Funky Snaget.glb" id="8_q2ek6"]
+[ext_resource type="PackedScene" uid="uid://cu7p41h74sm1y" path="res://Cool Krunk-Robo.glb" id="9_ogp8k"]
+[ext_resource type="PackedScene" uid="uid://uv20ctvsdh3e" path="res://Mighty Leelo.glb" id="10_o82cv"]
+[ext_resource type="PackedScene" uid="uid://bxwyi17n1q7qw" path="res://Mighty Leelo (1).glb" id="11_n57xo"]
+[ext_resource type="PackedScene" uid="uid://6t35yxbopilr" path="res://Mighty Leelo (2).glb" id="12_ofxay"]
+[ext_resource type="PackedScene" uid="uid://d3wljoevtovi0" path="res://Mighty Leelo (3).glb" id="13_1ridk"]
+[ext_resource type="PackedScene" uid="uid://bwgr6fbtvrce5" path="res://Mighty Leelo (4).glb" id="14_3khpf"]
+[ext_resource type="PackedScene" uid="uid://dsb3tki8e4tx3" path="res://Mighty Leelo (5).glb" id="15_nonx8"]
+[ext_resource type="Texture2D" uid="uid://cvkqvxuss8p0e" path="res://leaves.jpg" id="16_eyecl"]
+[ext_resource type="Texture2D" uid="uid://djf8x7msq47v" path="res://wall wood.jpg" id="17_vwffi"]
+[ext_resource type="Texture2D" uid="uid://c44o3qhsgidjs" path="res://street.jpg" id="18_h7mpk"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xhqke"]
-size = Vector2(20, 20)
+size = Vector2(15, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fphtj"]
+albedo_texture = ExtResource("1_mtxor")
+uv1_scale = Vector3(6, 6, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68qg3"]
-size = Vector3(20, 0.01, 20)
+size = Vector3(15, 0.01, 20)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f6w01"]
 
@@ -26,12 +43,30 @@ size = Vector3(4, 1, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f1xq"]
 size = Vector3(4, 1, 0.5)
 
+[sub_resource type="BoxMesh" id="BoxMesh_pgrt8"]
+size = Vector3(20, 4, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmact"]
+albedo_texture = ExtResource("16_eyecl")
+uv1_scale = Vector3(16, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elf5y"]
+albedo_texture = ExtResource("17_vwffi")
+uv1_scale = Vector3(40, 10, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gc3b3"]
+albedo_texture = ExtResource("18_h7mpk")
+uv1_scale = Vector3(2, 1, 1)
+
 [node name="Cafe" type="Node3D"]
 
 [node name="Floor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5981383, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001578331, -0.1546588, -0.72387886)
 mesh = SubResource("PlaneMesh_xhqke")
+surface_material_override/0 = SubResource("StandardMaterial3D_fphtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D"]
 
@@ -40,14 +75,15 @@ shape = SubResource("BoxShape3D_68qg3")
 debug_color = Color(0.6055544, 0.48786533, 0.6337095, 0.41960785)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -3.500049, 5.2263527, -1.9972544)
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -0.8495045, 0.8041029, 8.733453)
+light_energy = 0.869
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53684807, 0)
 script = ExtResource("1_mq4s1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39924526, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.702312, 0.39924526, 1.9009724)
 mesh = SubResource("CapsuleMesh_f6w01")
 skeleton = NodePath("../..")
 
@@ -58,7 +94,7 @@ shape = SubResource("CapsuleShape3D_5chmy")
 [node name="CameraPivot" type="Node3D" parent="Player"]
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8315687, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.702312, 0.8315687, 1.9009724)
 current = true
 
 [node name="Cashier" type="Area3D" parent="."]
@@ -85,7 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.877723, 1.3869267, 7.993993
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.722533, 1.8492355, 8.691471)
 
 [node name="Coin5" parent="." instance=ExtResource("3_68qg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.513165, 2.3115444, 7.132968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471344, 2.3115444, 7.8781424)
 
 [node name="Counter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9677196, 0, -5.5326195)
@@ -133,3 +169,114 @@ offset_bottom = 40.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Монет: 0"
+
+[node name="Tinkercad GLTF Scene" parent="." instance=ExtResource("7_shtk2")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -1.9534397, -0.32272768, 4.4176087)
+
+[node name="Tinkercad GLTF Scene2" parent="." instance=ExtResource("7_shtk2")]
+transform = Transform3D(-13.785714, 0, 37.549355, 0, 40, 0, -37.549355, 0, -13.785714, -2.3714685, -0.37106228, -1.5611205)
+
+[node name="Tinkercad GLTF Scene3" parent="." instance=ExtResource("8_q2ek6")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.747975, 0.0050001144, -7.394698)
+
+[node name="Tinkercad GLTF Scene4" parent="." instance=ExtResource("9_ogp8k")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 8.357544, 0.0050001144, -6.53842)
+
+[node name="Tinkercad GLTF Scene5" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.021006, 0.0050001144, -2.7220454)
+
+[node name="Tinkercad GLTF Scene6" parent="." instance=ExtResource("11_n57xo")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.5992126, 0.0050001144, -0.7096052)
+
+[node name="Tinkercad GLTF Scene7" parent="." instance=ExtResource("12_ofxay")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.3787427, 0.0050001144, 4.415882)
+
+[node name="Tinkercad GLTF Scene8" parent="." instance=ExtResource("13_1ridk")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 8.48156, 0.005001114, -0.7850609)
+
+[node name="Tinkercad GLTF Scene9" parent="." instance=ExtResource("14_3khpf")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.828869, 0.0050001144, 4.231774)
+
+[node name="Tinkercad GLTF Scene10" parent="." instance=ExtResource("15_nonx8")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 4.4574456, 0.0050001144, 6.081258)
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029034615, 1.9297786, -9.876497)
+mesh = SubResource("BoxMesh_pgrt8")
+surface_material_override/0 = SubResource("StandardMaterial3D_fmact")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.898312, 1.9297786, -0.19477987)
+mesh = SubResource("BoxMesh_pgrt8")
+surface_material_override/0 = SubResource("StandardMaterial3D_elf5y")
+
+[node name="Street" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2917366, 1.7523363, -0.44245148)
+mesh = SubResource("BoxMesh_pgrt8")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_gc3b3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.28777122, 1.6334729, 9.330852)
+mesh = SubResource("BoxMesh_pgrt8")
+surface_material_override/0 = SubResource("StandardMaterial3D_elf5y")
+
+[node name="WindowsWall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1036367, 1.7238421, 0)
+size = Vector3(0.2, 4, 20)
+
+[node name="Window" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, -8.075672)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window2" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04419613, 0.05895996, -6.2552404)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window3" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, -4.459362)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window4" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, -2.5934181)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window5" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, -0.7111583)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window6" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, 1.2118893)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window7" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, 3.1638994)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window8" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, 5.060567)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Window9" type="CSGBox3D" parent="WindowsWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, 7.0055017)
+operation = 2
+calculate_tangents = false
+size = Vector3(1, 3.545288, 1.730957)
