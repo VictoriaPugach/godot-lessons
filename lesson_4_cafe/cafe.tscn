@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bvouvuekrebvu"]
+[gd_scene load_steps=36 format=3 uid="uid://bvouvuekrebvu"]
 
 [ext_resource type="Script" uid="uid://ejdus2pi3855" path="res://Player.gd" id="1_mq4s1"]
 [ext_resource type="Texture2D" uid="uid://cg78l1ud0vlo3" path="res://floor.jpg" id="1_mtxor"]
@@ -6,28 +6,29 @@
 [ext_resource type="PackedScene" uid="uid://4g357wgjnw7q" path="res://coin.tscn" id="3_68qg3"]
 [ext_resource type="PackedScene" uid="uid://comv1uxblkil2" path="res://food.tscn" id="4_f6w01"]
 [ext_resource type="Script" uid="uid://bxupo3bsycexu" path="res://UIManager.gd" id="5_5chmy"]
-[ext_resource type="PackedScene" uid="uid://jxmjdwa44ayg" path="res://Glorious Uusam.glb" id="7_shtk2"]
-[ext_resource type="PackedScene" uid="uid://dg7khv46soieh" path="res://Funky Snaget.glb" id="8_q2ek6"]
-[ext_resource type="PackedScene" uid="uid://cu7p41h74sm1y" path="res://Cool Krunk-Robo.glb" id="9_ogp8k"]
-[ext_resource type="PackedScene" uid="uid://uv20ctvsdh3e" path="res://Mighty Leelo.glb" id="10_o82cv"]
-[ext_resource type="PackedScene" uid="uid://bxwyi17n1q7qw" path="res://Mighty Leelo (1).glb" id="11_n57xo"]
-[ext_resource type="PackedScene" uid="uid://6t35yxbopilr" path="res://Mighty Leelo (2).glb" id="12_ofxay"]
-[ext_resource type="PackedScene" uid="uid://d3wljoevtovi0" path="res://Mighty Leelo (3).glb" id="13_1ridk"]
-[ext_resource type="PackedScene" uid="uid://bwgr6fbtvrce5" path="res://Mighty Leelo (4).glb" id="14_3khpf"]
-[ext_resource type="PackedScene" uid="uid://dsb3tki8e4tx3" path="res://Mighty Leelo (5).glb" id="15_nonx8"]
+[ext_resource type="PackedScene" uid="uid://jxmjdwa44ayg" path="res://Стол.glb" id="7_shtk2"]
+[ext_resource type="PackedScene" uid="uid://dg7khv46soieh" path="res://Бургер.glb" id="8_q2ek6"]
+[ext_resource type="PackedScene" uid="uid://cu7p41h74sm1y" path="res://Торт.glb" id="9_ogp8k"]
+[ext_resource type="PackedScene" uid="uid://uv20ctvsdh3e" path="res://Цветок.glb" id="10_o82cv"]
+[ext_resource type="PackedScene" uid="uid://bxwyi17n1q7qw" path="res://Лампа.glb" id="11_n57xo"]
+[ext_resource type="PackedScene" uid="uid://d3wljoevtovi0" path="res://Пуфик.glb" id="13_1ridk"]
+[ext_resource type="PackedScene" uid="uid://bwgr6fbtvrce5" path="res://Мусорка.glb" id="14_3khpf"]
+[ext_resource type="PackedScene" uid="uid://dsb3tki8e4tx3" path="res://Диван.glb" id="15_nonx8"]
 [ext_resource type="Texture2D" uid="uid://cvkqvxuss8p0e" path="res://leaves.jpg" id="16_eyecl"]
 [ext_resource type="Texture2D" uid="uid://djf8x7msq47v" path="res://wall wood.jpg" id="17_vwffi"]
 [ext_resource type="Texture2D" uid="uid://c44o3qhsgidjs" path="res://street.jpg" id="18_h7mpk"]
+[ext_resource type="PackedScene" uid="uid://dfsu3iwduju1u" path="res://Монитор.glb" id="19_q2ek6"]
+[ext_resource type="PackedScene" uid="uid://cuk7lixgvtcwe" path="res://Кассовый аппарат.glb" id="20_ogp8k"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xhqke"]
-size = Vector2(15, 20)
+size = Vector2(18, 20)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fphtj"]
 albedo_texture = ExtResource("1_mtxor")
 uv1_scale = Vector3(6, 6, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68qg3"]
-size = Vector3(15, 0.01, 20)
+size = Vector3(18, 0.01, 20)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f6w01"]
 
@@ -40,6 +41,9 @@ size = Vector3(15, 0.01, 20)
 [sub_resource type="BoxMesh" id="BoxMesh_yg5ku"]
 size = Vector3(4, 1, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shtk2"]
+albedo_color = Color(0.38479158, 0.2174967, 4.813075e-08, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f1xq"]
 size = Vector3(4, 1, 0.5)
 
@@ -50,6 +54,9 @@ size = Vector3(20, 4, 0.2)
 albedo_texture = ExtResource("16_eyecl")
 uv1_scale = Vector3(16, 4, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_o82cv"]
+size = Vector3(20, 4, 0.2)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elf5y"]
 albedo_texture = ExtResource("17_vwffi")
 uv1_scale = Vector3(40, 10, 1)
@@ -58,13 +65,15 @@ uv1_scale = Vector3(40, 10, 1)
 albedo_texture = ExtResource("18_h7mpk")
 uv1_scale = Vector3(2, 1, 1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_shtk2"]
+
 [node name="Cafe" type="Node3D"]
 
 [node name="Floor" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5981383, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001578331, -0.1546588, -0.72387886)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4199958, -0.1942296, -0.31700015)
 mesh = SubResource("PlaneMesh_xhqke")
 surface_material_override/0 = SubResource("StandardMaterial3D_fphtj")
 
@@ -75,37 +84,39 @@ shape = SubResource("BoxShape3D_68qg3")
 debug_color = Color(0.6055544, 0.48786533, 0.6337095, 0.41960785)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -0.8495045, 0.8041029, 8.733453)
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -5.8495045, 1.8041029, 8.733453)
 light_energy = 0.869
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53684807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94498, 0.53684807, -0.24685419)
 script = ExtResource("1_mq4s1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.702312, 0.39924526, 1.9009724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108689785, 0.0854373, 0.75943255)
 mesh = SubResource("CapsuleMesh_f6w01")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39924526, 0)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.25390625, 0.39924526, 0.85311866)
 shape = SubResource("CapsuleShape3D_5chmy")
 
 [node name="CameraPivot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.43070805)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.702312, 0.8315687, 1.9009724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11897516, 0.8315687, 0.7025951)
 current = true
 
 [node name="Cashier" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777517, 0.46230888, -6.3353357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5306523, 0.46230888, -6.3353357)
 script = ExtResource("2_1yoj2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cashier"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.085291624, 0, 0)
 shape = SubResource("BoxShape3D_yg5ku")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cashier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05520177, 0, 0)
 mesh = SubResource("BoxMesh_5f1xq")
 
 [node name="Coin" parent="." instance=ExtResource("3_68qg3")]
@@ -115,38 +126,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.777517, 0.46230888, 2.66466
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5987034, 0.92461777, 5.3293285)
 
 [node name="Coin3" parent="." instance=ExtResource("3_68qg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.877723, 1.3869267, 7.993993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.600479, 0.12118149, 4.5919323)
 
 [node name="Coin4" parent="." instance=ExtResource("3_68qg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.722533, 1.8492355, 8.691471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5903821, 0.66349125, 4.5423956)
 
 [node name="Coin5" parent="." instance=ExtResource("3_68qg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.471344, 2.3115444, 7.8781424)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7299128, 0.44576454, -1.5236287)
 
 [node name="Counter" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9677196, 0, -5.5326195)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09503579, 0)
+transform = Transform3D(2.1259885, 0, 0, 0, 1, 0, 0, 0, 1.9830656, 1.4685793, 0.09503579, -1.4513488)
 mesh = SubResource("BoxMesh_yg5ku")
+surface_material_override/0 = SubResource("StandardMaterial3D_shtk2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Counter/MeshInstance3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_5f1xq")
 
 [node name="Food" parent="." instance=ExtResource("4_f6w01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2912564, 0.76379824, -5.648787)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0784793, 0.69666386, -7.1471915)
 food_description = "Бургер"
 
 [node name="Food2" parent="." instance=ExtResource("4_f6w01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7012115, 0.8025565, -5.557751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2753615, 0.73589325, -6.8615317)
 food_description = "Пицца"
 
 [node name="Food3" parent="." instance=ExtResource("4_f6w01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.575373, 0.831759, -5.5384946)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.585674, 0.74181557, -6.8441653)
 food_description = "Напиток"
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -177,51 +187,63 @@ transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -1.9534397, -0.32272768, 4
 transform = Transform3D(-13.785714, 0, 37.549355, 0, 40, 0, -37.549355, 0, -13.785714, -2.3714685, -0.37106228, -1.5611205)
 
 [node name="Tinkercad GLTF Scene3" parent="." instance=ExtResource("8_q2ek6")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.747975, 0.0050001144, -7.394698)
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.6424694, 0.0050001144, -6.035035)
 
 [node name="Tinkercad GLTF Scene4" parent="." instance=ExtResource("9_ogp8k")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 8.357544, 0.0050001144, -6.53842)
 
 [node name="Tinkercad GLTF Scene5" parent="." instance=ExtResource("10_o82cv")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.021006, 0.0050001144, -2.7220454)
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, -7.628737)
 
-[node name="Tinkercad GLTF Scene6" parent="." instance=ExtResource("11_n57xo")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.5992126, 0.0050001144, -0.7096052)
-
-[node name="Tinkercad GLTF Scene7" parent="." instance=ExtResource("12_ofxay")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.3787427, 0.0050001144, 4.415882)
+[node name="Лампа" parent="." instance=ExtResource("11_n57xo")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 4.4126835, 0.65261793, -6.58795)
 
 [node name="Tinkercad GLTF Scene8" parent="." instance=ExtResource("13_1ridk")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 8.48156, 0.005001114, -0.7850609)
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0.39337635, 0.005001114, -1.3059614)
 
 [node name="Tinkercad GLTF Scene9" parent="." instance=ExtResource("14_3khpf")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 7.828869, 0.0050001144, 4.231774)
-
-[node name="Tinkercad GLTF Scene10" parent="." instance=ExtResource("15_nonx8")]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 4.4574456, 0.0050001144, 6.081258)
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 10.123322, 0.0050001144, -6.3131804)
 
 [node name="Walls" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0029034615, 1.9297786, -9.876497)
+[node name="LeafWall" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(0.70295036, 0, 0, 0, 1, 0, 0, 0, 1, 2.9291682, 1.9297786, -9.876497)
 mesh = SubResource("BoxMesh_pgrt8")
 surface_material_override/0 = SubResource("StandardMaterial3D_fmact")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.898312, 1.9297786, -0.19477987)
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/LeafWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/LeafWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_o82cv")
+
+[node name="RightWall" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-4.2264432e-08, 0, -1, 0, 1, 0, 0.9668975, 0, -4.371139e-08, 9.898312, 1.9297786, -0.19477987)
 mesh = SubResource("BoxMesh_pgrt8")
 surface_material_override/0 = SubResource("StandardMaterial3D_elf5y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/RightWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/RightWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_o82cv")
 
 [node name="Street" type="MeshInstance3D" parent="Walls"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2917366, 1.7523363, -0.44245148)
 mesh = SubResource("BoxMesh_pgrt8")
-skeleton = NodePath("../MeshInstance3D")
+skeleton = NodePath("../LeafWall")
 surface_material_override/0 = SubResource("StandardMaterial3D_gc3b3")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Walls"]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.28777122, 1.6334729, 9.330852)
+[node name="backWall" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-0.71744657, 0, 8.742278e-08, 0, 1, 0, -6.272117e-08, 0, -1, 2.842267, 1.6334729, 9.330852)
 mesh = SubResource("BoxMesh_pgrt8")
 surface_material_override/0 = SubResource("StandardMaterial3D_elf5y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Walls/backWall"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/backWall/StaticBody3D"]
+shape = SubResource("BoxShape3D_o82cv")
+
+[node name="Tinkercad GLTF Scene" parent="Walls" instance=ExtResource("19_q2ek6")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 3.4707556, 1.6278665, -9.512456)
 
 [node name="WindowsWall" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1036367, 1.7238421, 0)
@@ -280,3 +302,60 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02947998, 7.0055017)
 operation = 2
 calculate_tangents = false
 size = Vector3(1, 3.545288, 1.730957)
+
+[node name="Tinkercad GLTF Scene11" parent="." instance=ExtResource("20_ogp8k")]
+transform = Transform3D(-14.999999, 0, -1.3113415e-06, 0, 14.999999, 0, 1.3113415e-06, 0, -14.999999, 1.9508932, 0.5979929, -6.89754)
+
+[node name="Tinkercad GLTF Scene12" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(104.499725, 0, 0, 0, 30.454872, 0, 0, 0, 111.015335, 1.3585119, 0.35500813, 2.8062363)
+
+[node name="Tinkercad GLTF Scene13" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, 1.546926)
+
+[node name="Tinkercad GLTF Scene14" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(168.2239, 0, 0, 0, 32.239395, 0, 0, 0, 128.20598, 6.3985667, 0.0050001144, -7.628737)
+
+[node name="Tinkercad GLTF Scene15" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, -7.628737)
+
+[node name="Tinkercad GLTF Scene16" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, -7.628737)
+
+[node name="Tinkercad GLTF Scene6" parent="." instance=ExtResource("7_shtk2")]
+transform = Transform3D(4.172805, 0, -39.781754, 0, 40, 0, 39.781754, 0, 4.172805, 2.6123233, 0, 2)
+
+[node name="стол справа" parent="." instance=ExtResource("7_shtk2")]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 8.3376465, -0.18922949, -1.2969756)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="стол справа"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="стол справа/StaticBody3D"]
+transform = Transform3D(0.20586295, 0, 0, 0, 0.096322216, 0, 0, 0, 0.14389777, 0.023741856, -0.018078852, 0.029188449)
+shape = SubResource("SphereShape3D_shtk2")
+
+[node name="Tinkercad GLTF Scene17" parent="." instance=ExtResource("15_nonx8")]
+transform = Transform3D(65, 0, 0, 0, 65, 0, 0, 0, 65, -2.03479, 0, -8.663368)
+
+[node name="Tinkercad GLTF Scene18" parent="." instance=ExtResource("15_nonx8")]
+transform = Transform3D(-2.8412403e-06, 0, 65, 0, 65, 0, -65, 0, -2.8412403e-06, -1.3208375, -0.18922949, 7.097716)
+
+[node name="Tinkercad GLTF Scene19" parent="." instance=ExtResource("15_nonx8")]
+transform = Transform3D(-51.381973, 0, 30.982128, 0, 59.999996, 0, -30.982128, 0, -51.381973, 2.133923, -0.18922949, 8.446361)
+
+[node name="Tinkercad GLTF Scene10" parent="." instance=ExtResource("13_1ridk")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 1.1104188, 0, 6.5592003)
+
+[node name="Tinkercad GLTF Scene20" parent="." instance=ExtResource("13_1ridk")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 3.2086663, -0.18922849, 7.023386)
+
+[node name="Tinkercad GLTF Scene21" parent="." instance=ExtResource("13_1ridk")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, -1.9356804, -0.18922849, -6.175664)
+
+[node name="Tinkercad GLTF Scene22" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 11.131984, -0.18922949, 8.695537)
+
+[node name="Tinkercad GLTF Scene23" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(75.65568, 0, 0, 0, 26.636368, 0, 0, 0, 101.26075, 11.230595, -0.18922901, 8.8812065)
+
+[node name="Tinkercad GLTF Scene24" parent="." instance=ExtResource("10_o82cv")]
+transform = Transform3D(66.65667, 0, 0, 0, 18.103477, 0, 0, 0, 64.61915, 11.755952, -0.18922949, 7.5859337)

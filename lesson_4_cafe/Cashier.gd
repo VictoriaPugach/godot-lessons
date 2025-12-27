@@ -11,12 +11,12 @@ var player: Node3D = null
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	print("Кассир готов")
+	print("Кассир готов, позиция: ", global_position)
 
 func _on_body_entered(body: Node3D):
 	# Проверяем, что это CharacterBody3D (игрок)
 	if body is CharacterBody3D:
-		print("Игрок вошел в зону кассира")
+		print("Игрок вошел в зону кассира! Позиция игрока: ", body.global_position, ", кассира: ", global_position)
 		player_near = true
 		player = body
 		Game.show_message.emit("Нажмите E для разговора с кассиром")
