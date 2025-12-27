@@ -92,7 +92,7 @@ transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.70710
 light_energy = 0.869
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_mq4s1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
@@ -152,15 +152,16 @@ shape = SubResource("BoxShape3D_5f1xq")
 
 [node name="Food" parent="." instance=ExtResource("4_f6w01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0784793, 0.69666386, -7.1471915)
-food_description = "Бургер"
 
 [node name="Food2" parent="." instance=ExtResource("4_f6w01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2753615, 0.73589325, -6.8615317)
-food_description = "Пицца"
+food_name = "Торт"
+food_description = "Вкусный торт"
 
 [node name="Food3" parent="." instance=ExtResource("4_f6w01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.585674, 0.74181557, -6.8441653)
-food_description = "Напиток"
+food_name = "Пончики"
+food_description = "Вкусные пончики"
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("5_5chmy")
@@ -379,10 +380,10 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 4, 0.5918689, -7.1797714)
 
 [node name="PatrollingWoman" type="Node3D" parent="."]
 process_mode = 3
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8645449, 0, -4.5871577)
+transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 4.8654103, 0, -2.5586984)
 script = ExtResource("22_1ridk")
-patrol_distance = 10.0
-patrol_speed = 0.7
+patrol_distance = 3.0
+patrol_speed = 0.8
 
 [node name="Sketchfab_Scene" parent="PatrollingWoman" instance=ExtResource("23_3khpf")]
 transform = Transform3D(0.37114093, 0, 0.9285765, 0, 1, 0, -0.9285765, 0, 0.37114093, 0, 0, 0.048597336)
