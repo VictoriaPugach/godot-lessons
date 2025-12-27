@@ -1,0 +1,12 @@
+Camera3D
+Node3D
+Label
+VBoxContainer
+Control
+CanvasLayer
+CollisionShape3D
+StaticBody3D
+MeshInstance3D
+Area3D
+CharacterBody3D
+DirectionalLight3D

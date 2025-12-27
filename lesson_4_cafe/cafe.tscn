@@ -1,0 +1,135 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvouvuekrebvu"]
+
+[ext_resource type="Script" uid="uid://ejdus2pi3855" path="res://Player.gd" id="1_mq4s1"]
+[ext_resource type="Script" uid="uid://b5yqkvgf7nhdw" path="res://Cashier.gd" id="2_1yoj2"]
+[ext_resource type="PackedScene" uid="uid://4g357wgjnw7q" path="res://coin.tscn" id="3_68qg3"]
+[ext_resource type="PackedScene" uid="uid://comv1uxblkil2" path="res://food.tscn" id="4_f6w01"]
+[ext_resource type="Script" uid="uid://bxupo3bsycexu" path="res://UIManager.gd" id="5_5chmy"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xhqke"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_68qg3"]
+size = Vector3(20, 0.01, 20)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f6w01"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5chmy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yg5ku"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5f1xq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yg5ku"]
+size = Vector3(4, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5f1xq"]
+size = Vector3(4, 1, 0.5)
+
+[node name="Cafe" type="Node3D"]
+
+[node name="Floor" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_xhqke")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_68qg3")
+debug_color = Color(0.6055544, 0.48786533, 0.6337095, 0.41960785)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -3.500049, 5.2263527, -1.9972544)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53684807, 0)
+script = ExtResource("1_mq4s1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39924526, 0)
+mesh = SubResource("CapsuleMesh_f6w01")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39924526, 0)
+shape = SubResource("CapsuleShape3D_5chmy")
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8315687, 0)
+current = true
+
+[node name="Cashier" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.777517, 0.46230888, -6.3353357)
+script = ExtResource("2_1yoj2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cashier"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_yg5ku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cashier"]
+mesh = SubResource("BoxMesh_5f1xq")
+
+[node name="Coin" parent="." instance=ExtResource("3_68qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.777517, 0.46230888, 2.6646643)
+
+[node name="Coin2" parent="." instance=ExtResource("3_68qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5987034, 0.92461777, 5.3293285)
+
+[node name="Coin3" parent="." instance=ExtResource("3_68qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.877723, 1.3869267, 7.993993)
+
+[node name="Coin4" parent="." instance=ExtResource("3_68qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.722533, 1.8492355, 8.691471)
+
+[node name="Coin5" parent="." instance=ExtResource("3_68qg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.513165, 2.3115444, 7.132968)
+
+[node name="Counter" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9677196, 0, -5.5326195)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09503579, 0)
+mesh = SubResource("BoxMesh_yg5ku")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Counter/MeshInstance3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_5f1xq")
+
+[node name="Food" parent="." instance=ExtResource("4_f6w01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2912564, 0.76379824, -5.648787)
+food_description = "Бургер"
+
+[node name="Food2" parent="." instance=ExtResource("4_f6w01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7012115, 0.8025565, -5.557751)
+food_description = "Пицца"
+
+[node name="Food3" parent="." instance=ExtResource("4_f6w01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.575373, 0.831759, -5.5384946)
+food_description = "Напиток"
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("5_5chmy")
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CoinLabel" type="Label" parent="UI/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Монет: 0"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://comv1uxblkil2"]
+
+[ext_resource type="Script" uid="uid://cmnbb6jdaeyem" path="res://Food.gd" id="1_8txok"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pohk7"]
+size = Vector3(0.5, 0.3, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6vj8"]
+size = Vector3(0.5, 0.3, 0.5)
+
+[node name="Food" type="Area3D"]
+script = ExtResource("1_8txok")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_pohk7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_q6vj8")
