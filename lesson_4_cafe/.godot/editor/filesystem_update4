@@ -6,3 +6,4 @@ res://cafe.tscn
 res://food.tscn
 res://Food.gd
 res://UIManager.gd
+res://PatrollingNPC.gd

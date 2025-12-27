@@ -1,15 +1,22 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766813891
-cafe.tscn::PackedScene::3890540587299401682::1766813891::0::1::::<><><>0<>0<><>::uid://ejdus2pi3855::::res://Player.gd<>uid://cg78l1ud0vlo3::::res://floor.jpg<>uid://b5yqkvgf7nhdw::::res://Cashier.gd<>uid://4g357wgjnw7q::::res://coin.tscn<>uid://comv1uxblkil2::::res://food.tscn<>uid://bxupo3bsycexu::::res://UIManager.gd<>uid://jxmjdwa44ayg::::res://Стол.glb<>uid://dg7khv46soieh::::res://Бургер.glb<>uid://cu7p41h74sm1y::::res://Торт.glb<>uid://uv20ctvsdh3e::::res://Цветок.glb<>uid://bxwyi17n1q7qw::::res://Лампа.glb<>uid://6t35yxbopilr::::res://Смеситель.glb<>uid://d3wljoevtovi0::::res://Пуфик.glb<>uid://bwgr6fbtvrce5::::res://Мусорка.glb<>uid://dsb3tki8e4tx3::::res://Диван.glb<>uid://cvkqvxuss8p0e::::res://leaves.jpg<>uid://djf8x7msq47v::::res://wall wood.jpg<>uid://c44o3qhsgidjs::::res://street.jpg<>uid://dfsu3iwduju1u::::res://Монитор.glb<>uid://cuk7lixgvtcwe::::res://Кассовый аппарат.glb
-Cashier.gd::GDScript::4542621501284458144::1766797376::0::1::::<>Area3D<><>0<>0<><>::
-Coin.gd::GDScript::5357642385243839329::1766811201::0::1::::<>Area3D<><>0<>0<><>::
-coin.tscn::PackedScene::2049618096659984480::1766793094::0::1::::<><><>0<>0<><>::uid://ciljt77fxtuv6::::res://Coin.gd
+::res://::1766832374
+ANIMATED_CASHIER_GUIDE.md::TextFile::-1::1766817883::0::1::::<><><>0<>0<><>::
+basic_walk_free_animation_30_frames_loop.glb::PackedScene::6262004686672253357::1766831942::1766831944::1::::<><><>0<>0<>3b7e67d4cfa655ddd87dbdd68b81b11d<>res://.godot/imported/basic_walk_free_animation_30_frames_loop.glb-fb8e957a74c69163b7db54e510295a05.scn::uid://bjm68glwdnyrb::::res://basic_walk_free_animation_30_frames_loop_0.png
+basic_walk_free_animation_30_frames_loop_0.png::CompressedTexture2D::3044834300595808827::1766831943::1766831946::1::::<><><>0<>0<>77eb08474a6e6a5746fe57a7575831a5<>res://.godot/imported/basic_walk_free_animation_30_frames_loop_0.png-1b823856b994cf5cb591cd73d332daf0.s3tc.ctex::
+cafe.tscn::PackedScene::3890540587299401682::1766832319::0::1::::<><><>0<>0<><>::uid://ejdus2pi3855::::res://Player.gd<>uid://cg78l1ud0vlo3::::res://floor.jpg<>uid://b5yqkvgf7nhdw::::res://Cashier.gd<>uid://4g357wgjnw7q::::res://coin.tscn<>uid://comv1uxblkil2::::res://food.tscn<>uid://bxupo3bsycexu::::res://UIManager.gd<>uid://jxmjdwa44ayg::::res://Стол.glb<>uid://dg7khv46soieh::::res://Бургер.glb<>uid://cu7p41h74sm1y::::res://Торт.glb<>uid://uv20ctvsdh3e::::res://Цветок.glb<>uid://bxwyi17n1q7qw::::res://Лампа.glb<>uid://d3wljoevtovi0::::res://Пуфик.glb<>uid://bwgr6fbtvrce5::::res://Мусорка.glb<>uid://dsb3tki8e4tx3::::res://Диван.glb<>uid://cvkqvxuss8p0e::::res://leaves.jpg<>uid://djf8x7msq47v::::res://wall wood.jpg<>uid://c44o3qhsgidjs::::res://street.jpg<>uid://dfsu3iwduju1u::::res://Монитор.glb<>uid://cuk7lixgvtcwe::::res://Кассовый аппарат.glb
+Cashier.gd::GDScript::4542621501284458144::1766817883::0::1::::<>Area3D<><>0<>0<><>::
+Coin.gd::GDScript::5357642385243839329::1766816527::0::1::::<>Area3D<><>0<>0<><>::
+coin.tscn::PackedScene::2049618096659984480::1766816712::0::1::::<><><>0<>0<><>::uid://ciljt77fxtuv6::::res://Coin.gd
+FIXES_SUMMARY.md::TextFile::-1::1766816527::0::1::::<><><>0<>0<><>::
 floor.jpg::CompressedTexture2D::5262059218512301756::1766805673::1766805786::1::::<><><>0<>0<>583136bbcbcb7d19bd854fa33e16998c<>res://.godot/imported/floor.jpg-691862d4ab0fa94792affb3ec40d613c.s3tc.ctex::
 Food.gd::GDScript::5642008546895624756::1766797119::0::1::::<>Area3D<><>0<>0<><>::
-food.tscn::PackedScene::5781580284915038097::1766793333::0::1::::<><><>0<>0<><>::uid://cmnbb6jdaeyem::::res://Food.gd
+food.tscn::PackedScene::5781580284915038097::1766817017::0::1::::<><><>0<>0<><>::uid://cmnbb6jdaeyem::::res://Food.gd
+greeting_waving_110_frames_loop.glb::PackedScene::4681454294140560693::1766831937::1766831940::1::::<><><>0<>0<>40e1aba56230a99acbaaa53864630aeb<>res://.godot/imported/greeting_waving_110_frames_loop.glb-6454686e44650d4a0ca3de0cd34d508d.scn::uid://btapvc6kwooov::::res://greeting_waving_110_frames_loop_0.png
+greeting_waving_110_frames_loop_0.png::CompressedTexture2D::3720957122799173881::1766831938::1766831941::1::::<><><>0<>0<>17743ca897f0ed1fa94543a98598f9b7<>res://.godot/imported/greeting_waving_110_frames_loop_0.png-f8d57a4e576ae14377719d10f4e0a0bf.s3tc.ctex::
 icon.svg::CompressedTexture2D::1972603697416723020::1766791161::1766791306::1::::<><><>0<>0<>6c26819697a4ec69468345504950b792<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 leaves.jpg::CompressedTexture2D::6268461074658094714::1766805673::1766808010::1::::<><><>0<>0<>8c5f1636a72c90d848689e200ad39779<>res://.godot/imported/leaves.jpg-218411c8fd8c390e1170e98a5040a510.s3tc.ctex::
-MODELS_GUIDE.md::TextFile::-1::1766794712::0::1::::<><><>0<>0<><>::
+MODELS_GUIDE.md::TextFile::-1::1766825955::0::1::::<><><>0<>0<><>::
+MODEL_SOURCES.md::TextFile::-1::1766825955::0::1::::<><><>0<>0<><>::
 Player.gd::GDScript::299553629018448414::1766795768::0::1::::<>CharacterBody3D<><>0<>0<><>::
 README.md::TextFile::-1::1766796345::0::1::::<><><>0<>0<><>::
 STEP_BY_STEP.md::TextFile::-1::1766796345::0::1::::<><><>0<>0<><>::
@@ -23,6 +30,7 @@ wall wood.jpg::CompressedTexture2D::229509704904066281::1766805673::1766807999::
 Лампа.glb::PackedScene::4047653307801711990::1766807646::1766813787::1::::<><><>0<>0<>79c1278a69b5a6ef70557e034b30f233<>res://.godot/imported/Лампа.glb-3092095f780f083c82052418b67db6bb.scn::
 Монитор.glb::PackedScene::7548629865263116480::1766809607::1766813836::1::::<><><>0<>0<>7449f399a7d1a367327f4d6a72b20fb3<>res://.godot/imported/Монитор.glb-64ddc713554db2d4605a89a8840480c5.scn::
 Мусорка.glb::PackedScene::3944049323795815718::1766807675::1766813778::1::::<><><>0<>0<>936b886fbfc4e89d90fd659d032166e4<>res://.godot/imported/Мусорка.glb-19274fce373fee3403c4251051730413.scn::
+Пончики.glb::PackedScene::5307025043403100537::1766832361::1766832375::1::::<><><>0<>0<>8e471fe755983633aab27d199d501e6b<>res://.godot/imported/Пончики.glb-72084ef9d4dfba3b73f21a9b44f0926a.scn::
 Пуфик.glb::PackedScene::9170650685085328957::1766807671::1766813806::1::::<><><>0<>0<>565c658d9cd4e38fc3f7e9c2de3473e2<>res://.godot/imported/Пуфик.glb-5b0b0e9240dda1fe5ce2334b53758ee2.scn::
 Смеситель.glb::PackedScene::2216832275876395871::1766807667::1766813797::1::::<><><>0<>0<>9cb14217c9a76b08b152068570fbbc62<>res://.godot/imported/Смеситель.glb-2bfe0399cb7ae0abd8e0a2b184d60e2b.scn::
 Стол.glb::PackedScene::679925148739649902::1766805196::1766813850::1::::<><><>0<>0<>c8ed932d2554c16cba1566ea14ffe6bb<>res://.godot/imported/Стол.glb-44d5a3839f7c717ebef31ec1b1fab95d.scn::

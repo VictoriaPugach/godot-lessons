@@ -1,10 +1,11 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvouvuekrebvu"]
+[gd_scene load_steps=40 format=3 uid="uid://bvouvuekrebvu"]
 
 [ext_resource type="Script" uid="uid://ejdus2pi3855" path="res://Player.gd" id="1_mq4s1"]
 [ext_resource type="Texture2D" uid="uid://cg78l1ud0vlo3" path="res://floor.jpg" id="1_mtxor"]
 [ext_resource type="Script" uid="uid://b5yqkvgf7nhdw" path="res://Cashier.gd" id="2_1yoj2"]
 [ext_resource type="PackedScene" uid="uid://4g357wgjnw7q" path="res://coin.tscn" id="3_68qg3"]
 [ext_resource type="PackedScene" uid="uid://comv1uxblkil2" path="res://food.tscn" id="4_f6w01"]
+[ext_resource type="PackedScene" uid="uid://b7xy4rx6bdekj" path="res://greeting_waving_110_frames_loop.glb" id="4_n57xo"]
 [ext_resource type="Script" uid="uid://bxupo3bsycexu" path="res://UIManager.gd" id="5_5chmy"]
 [ext_resource type="PackedScene" uid="uid://jxmjdwa44ayg" path="res://Стол.glb" id="7_shtk2"]
 [ext_resource type="PackedScene" uid="uid://dg7khv46soieh" path="res://Бургер.glb" id="8_q2ek6"]
@@ -19,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://c44o3qhsgidjs" path="res://street.jpg" id="18_h7mpk"]
 [ext_resource type="PackedScene" uid="uid://dfsu3iwduju1u" path="res://Монитор.glb" id="19_q2ek6"]
 [ext_resource type="PackedScene" uid="uid://cuk7lixgvtcwe" path="res://Кассовый аппарат.glb" id="20_ogp8k"]
+[ext_resource type="PackedScene" uid="uid://chu06ryxqpqgv" path="res://Пончики.glb" id="21_ofxay"]
+[ext_resource type="Script" uid="uid://bdevs1tk3cd0e" path="res://PatrollingNPC.gd" id="22_1ridk"]
+[ext_resource type="PackedScene" uid="uid://cvhmkjptinmdp" path="res://basic_walk_free_animation_30_frames_loop.glb" id="23_3khpf"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xhqke"]
 size = Vector2(18, 20)
@@ -36,8 +40,6 @@ size = Vector3(18, 0.01, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yg5ku"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_5f1xq"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_yg5ku"]
 size = Vector3(4, 1, 0.5)
 
@@ -46,6 +48,8 @@ albedo_color = Color(0.38479158, 0.2174967, 4.813075e-08, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f1xq"]
 size = Vector3(4, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shtk2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pgrt8"]
 size = Vector3(20, 4, 0.2)
@@ -65,7 +69,7 @@ uv1_scale = Vector3(40, 10, 1)
 albedo_texture = ExtResource("18_h7mpk")
 uv1_scale = Vector3(2, 1, 1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_shtk2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_q2ek6"]
 
 [node name="Cafe" type="Node3D"]
 
@@ -88,24 +92,24 @@ transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.70710
 light_energy = 0.869
 
 [node name="Player" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.94498, 0.53684807, -0.24685419)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 script = ExtResource("1_mq4s1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108689785, 0.0854373, 0.75943255)
+transform = Transform3D(0.5, 0, 0, 0, 0.8, 0, 0, 0, 0.54, 0.108689785, -0.0053167343, 0.75943255)
 mesh = SubResource("CapsuleMesh_f6w01")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.25390625, 0.39924526, 0.85311866)
 shape = SubResource("CapsuleShape3D_5chmy")
 
 [node name="CameraPivot" type="Node3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.43070805)
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11897516, 0.8315687, 0.7025951)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 current = true
+near = 0.1
+far = 1042.99
 
 [node name="Cashier" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5306523, 0.46230888, -6.3353357)
@@ -115,9 +119,8 @@ script = ExtResource("2_1yoj2")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.085291624, 0, 0)
 shape = SubResource("BoxShape3D_yg5ku")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cashier"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05520177, 0, 0)
-mesh = SubResource("BoxMesh_5f1xq")
+[node name="Sketchfab_Scene" parent="Cashier" instance=ExtResource("4_n57xo")]
+process_mode = 3
 
 [node name="Coin" parent="." instance=ExtResource("3_68qg3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.777517, 0.46230888, 2.6646643)
@@ -183,8 +186,14 @@ text = "Монет: 0"
 [node name="Tinkercad GLTF Scene" parent="." instance=ExtResource("7_shtk2")]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -1.9534397, -0.32272768, 4.4176087)
 
-[node name="Tinkercad GLTF Scene2" parent="." instance=ExtResource("7_shtk2")]
+[node name="стол 3" parent="." instance=ExtResource("7_shtk2")]
 transform = Transform3D(-13.785714, 0, 37.549355, 0, 40, 0, -37.549355, 0, -13.785714, -2.3714685, -0.37106228, -1.5611205)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="стол 3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="стол 3/StaticBody3D"]
+transform = Transform3D(5.709458, 0, -9.536743e-07, 0, 1.2345486, 0, 2.3841858e-07, 0, 10.735119, -0.007441789, 0.012565422, 0.020269852)
+shape = SubResource("BoxShape3D_shtk2")
 
 [node name="Tinkercad GLTF Scene3" parent="." instance=ExtResource("8_q2ek6")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.6424694, 0.0050001144, -6.035035)
@@ -318,11 +327,16 @@ transform = Transform3D(168.2239, 0, 0, 0, 32.239395, 0, 0, 0, 128.20598, 6.3985
 [node name="Tinkercad GLTF Scene15" parent="." instance=ExtResource("10_o82cv")]
 transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, -7.628737)
 
+[node name="стол 2" parent="." instance=ExtResource("7_shtk2")]
+transform = Transform3D(4.172805, 0, -39.781754, 0, 40, 0, 39.781754, 0, 4.172805, 2.6123233, 0, 2)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="стол 2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="стол 2/StaticBody3D"]
+transform = Transform3D(5.9780145, 0, 3.5762787e-07, 0, -1.7027462, 0, -1.1920929e-07, 0, 9.578128, 0, 0, 0)
+
 [node name="Tinkercad GLTF Scene16" parent="." instance=ExtResource("10_o82cv")]
 transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0.84677935, 0.0050001144, -7.628737)
-
-[node name="Tinkercad GLTF Scene6" parent="." instance=ExtResource("7_shtk2")]
-transform = Transform3D(4.172805, 0, -39.781754, 0, 40, 0, 39.781754, 0, 4.172805, 2.6123233, 0, 2)
 
 [node name="стол справа" parent="." instance=ExtResource("7_shtk2")]
 transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 8.3376465, -0.18922949, -1.2969756)
@@ -330,8 +344,8 @@ transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 8.3376465, -0.18922949, -1
 [node name="StaticBody3D" type="StaticBody3D" parent="стол справа"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="стол справа/StaticBody3D"]
-transform = Transform3D(0.20586295, 0, 0, 0, 0.096322216, 0, 0, 0, 0.14389777, 0.023741856, -0.018078852, 0.029188449)
-shape = SubResource("SphereShape3D_shtk2")
+transform = Transform3D(0.061758887, 0, 0, 0, 0.096322216, 0, 0, 0, 0.100728445, 0.023741856, -0.018078852, 0.029188449)
+shape = SubResource("BoxShape3D_q2ek6")
 
 [node name="Tinkercad GLTF Scene17" parent="." instance=ExtResource("15_nonx8")]
 transform = Transform3D(65, 0, 0, 0, 65, 0, 0, 0, 65, -2.03479, 0, -8.663368)
@@ -359,3 +373,16 @@ transform = Transform3D(75.65568, 0, 0, 0, 26.636368, 0, 0, 0, 101.26075, 11.230
 
 [node name="Tinkercad GLTF Scene24" parent="." instance=ExtResource("10_o82cv")]
 transform = Transform3D(66.65667, 0, 0, 0, 18.103477, 0, 0, 0, 64.61915, 11.755952, -0.18922949, 7.5859337)
+
+[node name="Пончики" parent="." instance=ExtResource("21_ofxay")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 4, 0.5918689, -7.1797714)
+
+[node name="PatrollingWoman" type="Node3D" parent="."]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8645449, 0, -4.5871577)
+script = ExtResource("22_1ridk")
+patrol_distance = 10.0
+patrol_speed = 0.7
+
+[node name="Sketchfab_Scene" parent="PatrollingWoman" instance=ExtResource("23_3khpf")]
+transform = Transform3D(0.37114093, 0, 0.9285765, 0, 1, 0, -0.9285765, 0, 0.37114093, 0, 0, 0.048597336)
