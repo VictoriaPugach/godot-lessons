@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bvouvuekrebvu"]
+[gd_scene load_steps=39 format=3 uid="uid://bvouvuekrebvu"]
 
 [ext_resource type="Script" uid="uid://ejdus2pi3855" path="res://Player.gd" id="1_mq4s1"]
 [ext_resource type="Texture2D" uid="uid://cg78l1ud0vlo3" path="res://floor.jpg" id="1_mtxor"]
@@ -32,11 +32,11 @@ albedo_texture = ExtResource("1_mtxor")
 uv1_scale = Vector3(6, 6, 6)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_68qg3"]
-size = Vector3(18, 0.01, 20)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_f6w01"]
+size = Vector3(18, 1.0, 20)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5chmy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f6w01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yg5ku"]
 
@@ -48,8 +48,6 @@ albedo_color = Color(0.38479158, 0.2174967, 4.813075e-08, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f1xq"]
 size = Vector3(4, 1, 0.5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_shtk2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pgrt8"]
 size = Vector3(20, 4, 0.2)
@@ -74,18 +72,16 @@ uv1_scale = Vector3(2, 1, 1)
 [node name="Cafe" type="Node3D"]
 
 [node name="Floor" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5981383, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4199958, -0.1942296, -0.31700015)
 mesh = SubResource("PlaneMesh_xhqke")
 surface_material_override/0 = SubResource("StandardMaterial3D_fphtj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor/MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_68qg3")
-debug_color = Color(0.6055544, 0.48786533, 0.6337095, 0.41960785)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, -5.8495045, 1.8041029, 8.733453)
@@ -95,21 +91,19 @@ light_energy = 0.869
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_mq4s1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-transform = Transform3D(0.5, 0, 0, 0, 0.8, 0, 0, 0, 0.54, 0.108689785, -0.0053167343, 0.75943255)
-mesh = SubResource("CapsuleMesh_f6w01")
-skeleton = NodePath("../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_5chmy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_f6w01")
 
 [node name="CameraPivot" type="Node3D" parent="Player"]
 
 [node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 current = true
 near = 0.1
-far = 1042.99
+far = 1000.0
 
 [node name="Cashier" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5306523, 0.46230888, -6.3353357)
@@ -191,10 +185,6 @@ transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, -1.9534397, -0.32272768, 4
 transform = Transform3D(-13.785714, 0, 37.549355, 0, 40, 0, -37.549355, 0, -13.785714, -2.3714685, -0.37106228, -1.5611205)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="стол 3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="стол 3/StaticBody3D"]
-transform = Transform3D(5.709458, 0, -9.536743e-07, 0, 1.2345486, 0, 2.3841858e-07, 0, 10.735119, -0.007441789, 0.012565422, 0.020269852)
-shape = SubResource("BoxShape3D_shtk2")
 
 [node name="Tinkercad GLTF Scene3" parent="." instance=ExtResource("8_q2ek6")]
 transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 6.6424694, 0.0050001144, -6.035035)
@@ -380,7 +370,7 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 4, 0.5918689, -7.1797714)
 
 [node name="PatrollingWoman" type="Node3D" parent="."]
 process_mode = 3
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 4.8654103, 0, -2.5586984)
+transform = Transform3D(0.9659258, 0, 0.2588191, 0, 1, 0, -0.2588191, 0, 0.9659258, 4.8654103, 0, -2.5586984)
 script = ExtResource("22_1ridk")
 patrol_distance = 3.0
 patrol_speed = 0.8

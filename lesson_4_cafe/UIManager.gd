@@ -74,8 +74,7 @@ func _create_ui():
 	msg_panel.offset_top = -50
 	msg_panel.offset_right = 300
 	msg_panel.offset_bottom = 0
-	msg_panel.grow_horizontal = Control.SIZE_SHRINK_CENTER
-	msg_panel.grow_vertical = Control.SIZE_SHRINK_END
+	# grow_direction настраивается автоматически через anchors
 	
 	var msg_style_box = StyleBoxFlat.new()
 	msg_style_box.bg_color = Color(0.1, 0.1, 0.1, 0.9)

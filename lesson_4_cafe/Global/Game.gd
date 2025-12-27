@@ -21,4 +21,3 @@ func spend_coins(amount: int) -> bool:
 
 func get_coins() -> int:
 	return coins
-
