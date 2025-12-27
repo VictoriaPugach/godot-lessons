@@ -3,7 +3,7 @@ extends Area3D
 # Скрипт кассира для диалога
 # Когда игрок подходит близко, можно поговорить
 
-@export var dialog_text: String = "Добро пожаловать в наше кафе! Нажмите E, чтобы поговорить."
+@export var dialog_text: String = "Добро пожаловать в наше кафе!"
 
 var player_near: bool = false
 var player: Node3D = null
@@ -37,6 +37,6 @@ func _process(_delta):
 			show_dialog()
 
 func show_dialog():
-	var dialog = dialog_text
+	var dialog = "💬 Кассир: " + dialog_text
 	Game.show_message.emit(dialog)
-	print("Кассир говорит: ", dialog)
+	print("Кассир говорит: ", dialog_text)
