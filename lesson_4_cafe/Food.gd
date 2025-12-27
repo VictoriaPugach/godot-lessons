@@ -21,6 +21,9 @@ func _ready():
 	if price == 5:
 		_assign_price_by_name()
 	
+	# Загружаем модель еды
+	_load_food_model()
+	
 	# Создаем ценник над едой
 	_create_price_label()
 	
@@ -42,6 +45,38 @@ func _assign_price_by_name():
 		_:
 			price = 2  # Дефолтная цена для неизвестных названий
 
+func _load_food_model():
+	# Определяем путь к модели в зависимости от названия еды
+	var model_path: String = ""
+	match food_name:
+		"Бургер":
+			model_path = "res://Бургер.glb"
+		"Торт", "Cake":
+			model_path = "res://Торт.glb"
+		"Пончики", "Пончик", "Donut":
+			model_path = "res://Пончики.glb"
+		_:
+			return  # Если модель не найдена, оставляем BoxMesh
+	
+	# Загружаем сцену модели
+	var model_scene = load(model_path)
+	if not model_scene:
+		print("⚠️ Не удалось загрузить модель: ", model_path)
+		return
+	
+	# Удаляем старый BoxMesh если есть
+	var old_mesh = get_node_or_null("MeshInstance3D")
+	if old_mesh:
+		old_mesh.queue_free()
+	
+	# Создаем инстанс модели
+	var model_instance = model_scene.instantiate()
+	if model_instance:
+		model_instance.name = "FoodModel"
+		add_child(model_instance)
+		# Масштабируем модель
+		model_instance.scale = Vector3(20, 20, 20)
+
 func _create_price_label():
 	# Создаем Label3D для отображения цены и названия
 	price_label = Label3D.new()
@@ -55,17 +90,11 @@ func _create_price_label():
 	
 	# Позиционируем над едой (ищем модель или используем стандартную позицию)
 	var mesh_instance = get_node_or_null("MeshInstance3D")
-	var model_node = null
+	var model_node = get_node_or_null("FoodModel")
 	
-	# Пытаемся найти дочерний узел с моделью (GLB инстанс)
-	for child in get_children():
-		if child is Node3D and child != price_label:
-			model_node = child
-			break
-	
+	# Если есть модель, позиционируем ценник повыше
 	if model_node:
-		# Если есть модель, позиционируем ценник повыше
-		price_label.position = Vector3(0, 0.6, 0)
+		price_label.position = Vector3(0, 0.8, 0)
 	elif mesh_instance:
 		price_label.position = Vector3(0, 0.5, 0)
 	else:

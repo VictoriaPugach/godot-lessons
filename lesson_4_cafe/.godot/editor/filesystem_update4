@@ -2,3 +2,4 @@ res://cafe.tscn
 res://Player.gd
 res://Global/Game.gd
 res://UIManager.gd
+res://Food.gd
