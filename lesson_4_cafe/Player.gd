@@ -73,8 +73,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Vector3.ZERO
 	if input_dir.length() > 0:
 		# Получаем направление вперед и вправо от игрока (повернутого по Y)
-		# В Godot transform.basis.z указывает "назад", -z указывает "вперед"
-		var forward = -transform.basis.z  # Направление вперед (куда смотрит игрок)
+		# В Godot для CharacterBody3D transform.basis.z указывает вперед
+		var forward = transform.basis.z   # Направление вперед (куда смотрит игрок)
 		var right = transform.basis.x     # Направление вправо
 		
 		# Объединяем направления в зависимости от ввода

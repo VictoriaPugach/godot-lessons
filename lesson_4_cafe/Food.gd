@@ -13,27 +13,39 @@ var is_purchased: bool = false
 func _ready():
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
+	print("Food готов: ", food_name)
 
 func _on_body_entered(body: Node3D):
-	if not is_purchased and body.name == "Player":
-		player_near = true
-		Game.show_message.emit("Нажмите E чтобы купить " + food_name + " за " + str(price) + " монет")
+	# Проверяем, что это CharacterBody3D (игрок)
+	if body is CharacterBody3D:
+		print("Игрок вошел в зону еды: ", food_name)
+		if not is_purchased:
+			player_near = true
+			Game.show_message.emit("Нажмите E чтобы купить " + food_name + " за " + str(price) + " монет")
+			print("Сообщение отправлено, игрок рядом: ", player_near)
 
 func _on_body_exited(body: Node3D):
-	if body.name == "Player":
+	# Проверяем, что это CharacterBody3D (игрок)
+	if body is CharacterBody3D:
+		print("Игрок вышел из зоны еды: ", food_name)
 		player_near = false
 
 func _process(_delta):
 	# Проверяем ввод в _process вместо _input для более надежной работы
-	if player_near and not is_purchased and Input.is_action_just_pressed("interact"):
-		buy_food()
+	if player_near and not is_purchased:
+		if Input.is_action_just_pressed("interact"):
+			print("Нажата клавиша E для покупки: ", food_name)
+			buy_food()
 
 func buy_food():
+	print("Попытка купить: ", food_name, ", цена: ", price, ", монет: ", Game.get_coins())
 	if Game.spend_coins(price):
 		is_purchased = true
 		Game.show_message.emit("Вы купили " + food_name + "! Осталось монет: " + str(Game.get_coins()))
+		print("Покупка успешна!")
 		# Визуальная обратная связь - немного поднимаем еду
 		var tween = create_tween()
 		tween.tween_property(self, "position", position + Vector3(0, 0.2, 0), 0.3)
 	else:
 		Game.show_message.emit("Недостаточно монет! Нужно " + str(price) + ", у вас " + str(Game.get_coins()))
+		print("Недостаточно монет!")

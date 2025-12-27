@@ -11,6 +11,7 @@ func _ready():
 	Game.show_message.connect(_on_show_message)
 	# Ждем один кадр, чтобы UI узлы точно были созданы
 	call_deferred("_update_coin_display")
+	print("UIManager готов. Сигналы подключены.")
 
 func _on_coins_changed(new_amount: int):
 	_update_coin_display()
